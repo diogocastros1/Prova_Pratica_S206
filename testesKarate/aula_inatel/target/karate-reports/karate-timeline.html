@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"fakestore\/fakestore[1:8]","start":1687030790763,"end":1687030794308,"title":"fakestore\/fakestore[1:8] 16:39:50.763-16:39:54.308 Validando lista de produtos"},{"id":2,"group":1,"content":"fakestore\/fakestore[2:13]","start":1687030794368,"end":1687030795067,"title":"fakestore\/fakestore[2:13] 16:39:54.368-16:39:55.067 Buscando por lista inexistente"},{"id":3,"group":1,"content":"fakestore\/fakestore[3:18]","start":1687030795089,"end":1687030795825,"title":"fakestore\/fakestore[3:18] 16:39:55.089-16:39:55.825 Buscando um produto da lista e comparando o preço"},{"id":4,"group":1,"content":"fakestore\/fakestore[4:24]","start":1687030795852,"end":1687030796695,"title":"fakestore\/fakestore[4:24] 16:39:55.852-16:39:56.695 Inserindo novo produto e comparando seu preço"},{"id":5,"group":1,"content":"fakestore\/fakestore[5:31]","start":1687030796714,"end":1687030797434,"title":"fakestore\/fakestore[5:31] 16:39:56.714-16:39:57.434 Atualizando o preço do produto 2 e comparando o retorno preço"},{"id":6,"group":1,"content":"fakestore\/fakestore[6:38]","start":1687030797452,"end":1687030798334,"title":"fakestore\/fakestore[6:38] 16:39:57.452-16:39:58.334 Deletando produto 2"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
